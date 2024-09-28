@@ -24,6 +24,14 @@ environment {
                 }
             }
         }
+stage('Build Docker Image') {
+            steps {
+                script {
+                    // Builder l'image Docker
+                    sh 'docker build -t my-maven-app .'
+                }
+            }
+        }
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
