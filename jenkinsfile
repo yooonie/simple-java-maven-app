@@ -34,7 +34,6 @@ agent {
             steps {
                 script {
                     // Builder l'image Docker
-                    sh 'sudo apt-get update && apt-get install -y docker'
                     sh 'docker build -t my-maven-app .'
                 }
             }
