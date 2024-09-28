@@ -25,6 +25,12 @@ environment {
             }
         }
 stage('Build Docker Image') {
+agent {
+        docker {
+            image 'docker:latest'
+         
+        }
+    }
             steps {
                 script {
                     // Builder l'image Docker
