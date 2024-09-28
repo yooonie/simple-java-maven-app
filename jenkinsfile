@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.9.2-openjdk-17'
+            image 'maven:3.9.2'
             args '-v /root/.m2:/root/.m2'
         }
     }
@@ -28,6 +28,7 @@ stage('Build Docker Image') {
             steps {
                 script {
                     // Builder l'image Docker
+                    sh 'apt-get update && apt-get install -y docker'
                     sh 'docker build -t my-maven-app .'
                 }
             }
